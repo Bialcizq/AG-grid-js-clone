@@ -4,6 +4,15 @@ const columnDefs = [
     { field: 'price' },
 ];
 
+// arr = ['make', 'model', 'price'];
+// arr = {
+//     1: 'make', 
+//     2: 'model',
+//     3: 'price'
+// }
+
+// columnDefs = [['make'],['model'],['price']]
+
 const rowData = [
     {  make: 'Toyota', model: 'Celica', price: 35000 },
     {  make: 'Ford', model: 'Mondeo', price: 32000 },
@@ -16,12 +25,13 @@ for (let i = 0; i < columnDefs.length; i++) {
     //console.log(columnDefs[i]);
     const divElement = document.createElement('div');
     divElement.textContent = columnDefs[i].field;
+    divElement.className = 'column' + columnDefs[i].field;
     document.querySelector('.headWrapper').appendChild(divElement);
     for (let j = 0; j < rowData.length; j++) {
-        console.log('qwe');
+        // console.log('qwe');
         const divElementData = document.createElement('div');
-        divElementData.textContent = rowData[j];
-        document.querySelector('div').appendChild(divElementData);
+        divElementData.textContent = rowData[j][columnDefs[i].field];
+        document.querySelector('.column' + columnDefs[i].field).appendChild(divElementData);
     }
 }
 

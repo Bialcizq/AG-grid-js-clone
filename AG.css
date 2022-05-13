@@ -10,4 +10,11 @@
 
 div {
     padding: 20px;
+    display: flex;
 }
+
+.headWrapper > div {
+    display: flex;
+    flex-direction: column;
+}
+
