@@ -24,9 +24,12 @@ const rowData = [
 for (let i = 0; i < columnDefs.length; i++) {
     //console.log(columnDefs[i]);
     const divElement = document.createElement('div');
-    divElement.textContent = columnDefs[i].field;
+    const header = document.createElement('h1');
+    header.className = 'columnName';
+    header.textContent = columnDefs[i].field;
     divElement.className = 'column' + columnDefs[i].field;
     document.querySelector('.headWrapper').appendChild(divElement);
+    document.querySelector('.column' + columnDefs[i].field).appendChild(header);
     for (let j = 0; j < rowData.length; j++) {
         // console.log('qwe');
         const divElementData = document.createElement('div');
