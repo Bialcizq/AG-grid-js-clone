@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 .headWrapper {
@@ -18,3 +19,17 @@ div {
     flex-direction: column;
 }
 
+.newTable {
+    display: flex;
+    flex-direction: row;
+}
+
+.newTable > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.sortButtons {
+    display: flex;
+    flex-direction: row;
+}
