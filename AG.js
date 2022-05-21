@@ -149,20 +149,20 @@ sortByPrice.addEventListener('click', ()=> {
     emptyWrapper.innerHTML='';
     console.log(rowData)
 
-    for (let i = 0; i < columnDefs.length; i++) {
-        //console.log(columnDefs[i]);
-        const divElement = document.createElement('div');
-        const header = document.createElement('h1');
-        header.className = 'columnName';
-        header.textContent = columnDefs[i].field;
-        divElement.className = 'column' + columnDefs[i].field;
-        document.querySelector('.headWrapper').appendChild(divElement);
-        document.querySelector('.column' + columnDefs[i].field).appendChild(header);
-        for (let j = 0; j < rowData.length; j++) {
-            // console.log('qwe');
-            const divElementData = document.createElement('div');
-            divElementData.textContent = rowData[j][columnDefs[i].field];
-            document.querySelector('.column' + columnDefs[i].field).appendChild(divElementData);
-        }
-    }
+    // for (let i = 0; i < columnDefs.length; i++) {
+    //     //console.log(columnDefs[i]);
+    //     const divElement = document.createElement('div');
+    //     const header = document.createElement('h1');
+    //     header.className = 'columnName';
+    //     header.textContent = columnDefs[i].field;
+    //     divElement.className = 'column' + columnDefs[i].field;
+    //     document.querySelector('.headWrapper').appendChild(divElement);
+    //     document.querySelector('.column' + columnDefs[i].field).appendChild(header);
+    //     for (let j = 0; j < rowData.length; j++) {
+    //         // console.log('qwe');
+    //         const divElementData = document.createElement('div');
+    //         divElementData.textContent = rowData[j][columnDefs[i].field];
+    //         document.querySelector('.column' + columnDefs[i].field).appendChild(divElementData);
+    //     }
+    // }
 })
