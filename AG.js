@@ -34,22 +34,32 @@ for (let o = 0; o < rowData.length; o+=2) {
 }
 
 function createTable() {
-for (let i = 0; i < columnDefs.length; i++) {
-    //console.log(columnDefs[i]);
-    const divElement = document.createElement('div');
-    const header = document.createElement('h1');
-    header.className = 'columnName';
-    header.textContent = columnDefs[i].field;
-    divElement.className = 'column' + columnDefs[i].field;
-    document.querySelector('.headWrapper').appendChild(divElement);
-    document.querySelector('.column' + columnDefs[i].field).appendChild(header);
-    for (let j = 0; j < rowData.length; j++) {
-        // console.log('qwe');
-        const divElementData = document.createElement('div');
-        divElementData.textContent = rowData[j][columnDefs[i].field];
-        document.querySelector('.column' + columnDefs[i].field).appendChild(divElementData);
+    const emptyWrapper = document.querySelector('.headWrapper');
+    emptyWrapper.innerHTML='';
+    for (let i = 0; i < columnDefs.length; i++) {
+        const divElement = document.createElement('div');
+        const header = document.createElement('h1');
+        header.className = 'columnName';
+        header.textContent = columnDefs[i].field;
+        divElement.className = 'column' + columnDefs[i].field;
+        document.querySelector('.headWrapper').appendChild(divElement);
+        document.querySelector('.column' + columnDefs[i].field).appendChild(header);
+        for (let j = 0; j < rowData.length; j++) {
+            console.log(rowData[j]);
+            if (columnDefs[i].field === 'amount'){
+                const amountContainer = document.createElement('input');
+                amountContainer.className = 'dataOf' + columnDefs[i].field;
+                document.querySelector('.column' + columnDefs[i].field).appendChild(amountContainer);
+            }
+            else {
+                const divElementData = document.createElement('div');
+                divElementData.textContent = rowData[j][columnDefs[i].field];
+                divElementData.className = 'dataOf' + columnDefs[i].field;
+                document.querySelector('.column' + columnDefs[i].field).appendChild(divElementData);
+            }
+            
+        }
     }
-}
 }
 
 // const secondWrapper = document.createElement('div')
@@ -83,9 +93,7 @@ sortByMake.addEventListener('click', ()=> {
             return 1
         }
     });
-    const emptyWrapper = document.querySelector('.headWrapper');
-    emptyWrapper.innerHTML='';
-
+    
     createTable();
 });
 
@@ -99,8 +107,6 @@ sortByModel.addEventListener('click', ()=> {
             return 1
         }
     });
-    const emptyWrapper = document.querySelector('.headWrapper');
-    emptyWrapper.innerHTML='';
 
     createTable();
 })
@@ -115,8 +121,6 @@ sortByPrice.addEventListener('click', ()=> {
             return 1
         }
     });
-    const emptyWrapper = document.querySelector('.headWrapper');
-    emptyWrapper.innerHTML='';
 
     createTable();
 })
@@ -126,15 +130,26 @@ const amountData = [];
 createOrder.addEventListener('click', ()=> {
     columnDefs.push({field: 'amount'});
     
-    const emptyWrapper = document.querySelector('.headWrapper');
-    emptyWrapper.innerHTML='';
-
-    for (let  i = 0; i < rowData.length; i++) {
-        const amountElement = document.createElement('div');
-        const amountElementInput = document.createElement('input');
-        rowData[i].amount = amountElement;
-        amountElement.className = 'inputContainer';
+    for (let i = 0; i < rowData.length; i++) {
+        rowData[i].amount = '';
     }
 
+    // for (let j = 0; i < )
+
     createTable();
+
+    // for (let  i = 0; i < rowData.length; i++) {
+    //     const amountElement = document.createElement('input');
+    //     amountElement.className = 'inputContainer';
+    //     document.querySelector('.headWrapper > div').appendChild(amountElement);
+    // }
+
+    // for (let j = 0; j < rowData.length; j++) {
+    //     const amountElementInput = document.createElement('input');
+    //     amountElementInput.className = 'inputCell';
+    //     amountElementInput.textContent = '';
+    //     document.querySelector('.inputContainer').appendChild(amountData);
+    // }
+
+    // createTable();
 })

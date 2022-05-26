@@ -95,3 +95,8 @@ h1 {
 .orderButton {
     display: flex;
 }
+
+.dataOfamount {
+    width: 200px;
+    height: 60px;
+}
